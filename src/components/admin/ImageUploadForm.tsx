@@ -9,6 +9,9 @@ import { useRouter } from "next/navigation";
 import { PortfolioSection } from "@/lib/types";
 import { createSupabaseBrowserClient } from "@/lib/supabase/client";
 
+const isFileList = (value: unknown): value is FileList =>
+  typeof FileList !== "undefined" && value instanceof FileList;
+
 const schema = z.object({
   sectionId: z.string().min(1, "Select a section"),
   caption: z.string().optional(),
@@ -16,11 +19,20 @@ const schema = z.object({
   order: z.coerce.number().int().min(0).default(0),
   files: z
     .any()
-    .refine((files) => files && files.length > 0, "Choose at least one image.")
+    .refine(
+      (files) => isFileList(files) && files.length > 0,
+      "Choose at least one image.",
+    )
     .refine(
       (files) =>
-        Array.from(files ?? []).every(
-          (file: File) => !!file.type && file.type.startsWith("image/"),
+        !isFileList(files) ||
+        Array.from(files).every(
+          (file) =>
+            typeof file === "object" &&
+            file !== null &&
+            "type" in file &&
+            typeof (file as File).type === "string" &&
+            (file as File).type.startsWith("image/"),
         ),
       "Only image uploads are supported.",
     ),
