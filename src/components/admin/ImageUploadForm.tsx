@@ -16,7 +16,7 @@ const schema = z.object({
   sectionId: z.string().min(1, "Select a section"),
   caption: z.string().optional(),
   altText: z.string().optional(),
-  order: z.coerce.number().int().min(0).default(0),
+  order: z.number().int().min(0).default(0),
   files: z
     .any()
     .refine(
@@ -224,4 +224,3 @@ export const ImageUploadForm = ({ sections }: Props) => {
     </form>
   );
 };
-
