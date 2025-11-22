@@ -48,7 +48,7 @@ export const Hero = ({ totalSections, sections }: HeroProps) => {
                           element.scrollIntoView({ behavior: 'smooth', block: 'center' });
                         }
                       }}
-                      className="relative overflow-hidden rounded-full border border-white/20 bg-white/5 px-4 py-2.5 text-sm font-medium text-white/90 shadow-[0_2px_8px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.3)] backdrop-blur-md transition active:scale-95 sm:px-5 sm:py-3 sm:text-base"
+                      className="relative overflow-hidden rounded-full border border-white/20 bg-white/5 px-4 py-2 text-xs font-medium text-white/90 shadow-[0_2px_8px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.3)] backdrop-blur-md transition active:scale-95"
                     >
                       <div className="absolute left-0 right-0 top-0 h-px bg-linear-to-r from-transparent via-white/60 to-transparent" />
                       <div className="absolute left-0 top-0 h-full w-px bg-linear-to-b from-white/60 via-transparent to-white/20" />
@@ -62,7 +62,7 @@ export const Hero = ({ totalSections, sections }: HeroProps) => {
                         element.scrollIntoView({ behavior: 'smooth', block: 'center' });
                       }
                     }}
-                    className="relative overflow-hidden rounded-full border border-white/20 bg-white/5 px-4 py-2.5 text-sm font-medium text-white/90 shadow-[0_2px_8px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.3)] backdrop-blur-md transition active:scale-95 sm:px-5 sm:py-3 sm:text-base"
+                    className="relative overflow-hidden rounded-full border border-white/20 bg-white/5 px-4 py-2 text-xs font-medium text-white/90 shadow-[0_2px_8px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.3)] backdrop-blur-md transition active:scale-95"
                   >
                     <div className="absolute left-0 right-0 top-0 h-px bg-linear-to-r from-transparent via-white/60 to-transparent" />
                     <div className="absolute left-0 top-0 h-full w-px bg-linear-to-b from-white/60 via-transparent to-white/20" />
@@ -75,7 +75,7 @@ export const Hero = ({ totalSections, sections }: HeroProps) => {
                         element.scrollIntoView({ behavior: 'smooth', block: 'center' });
                       }
                     }}
-                    className="relative overflow-hidden rounded-full border border-rose-500/30 bg-rose-500/10 px-4 py-2.5 text-sm font-medium text-rose-200 shadow-[0_2px_8px_rgba(244,114,182,0.2),inset_0_1px_0_rgba(255,255,255,0.3)] backdrop-blur-md transition active:scale-95 sm:px-5 sm:py-3 sm:text-base"
+                    className="relative overflow-hidden rounded-full border border-rose-500/30 bg-rose-500/10 px-4 py-2 text-xs font-medium text-rose-200 shadow-[0_2px_8px_rgba(244,114,182,0.2),inset_0_1px_0_rgba(255,255,255,0.3)] backdrop-blur-md transition active:scale-95"
                   >
                     <div className="absolute left-0 right-0 top-0 h-px bg-linear-to-r from-transparent via-rose-300/60 to-transparent" />
                     <div className="absolute left-0 top-0 h-full w-px bg-linear-to-b from-rose-300/60 via-transparent to-rose-300/20" />
@@ -133,7 +133,7 @@ export const Hero = ({ totalSections, sections }: HeroProps) => {
                         element.scrollIntoView({ behavior: 'smooth', block: 'center' });
                       }
                     }}
-                    className="group relative overflow-hidden rounded-xl border border-white/20 bg-white/5 px-4 py-2.5 text-sm font-medium text-white/90 shadow-[0_4px_16px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.3),inset_0_-1px_0_rgba(255,255,255,0.1)] backdrop-blur-md transition hover:border-white/30 hover:bg-white/10 hover:scale-105 hover:shadow-lg"
+                    className="group relative overflow-hidden rounded-full border border-white/20 bg-white/5 px-5 py-2.5 text-sm font-medium text-white/90 shadow-[0_4px_16px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.3),inset_0_-1px_0_rgba(255,255,255,0.1)] backdrop-blur-md transition hover:border-white/30 hover:bg-white/10 hover:shadow-lg"
                   >
                     {/* Top gradient line */}
                     <div className="absolute left-0 right-0 top-0 h-px bg-linear-to-r from-transparent via-white/60 to-transparent" />
@@ -154,7 +154,7 @@ export const Hero = ({ totalSections, sections }: HeroProps) => {
                       element.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     }
                   }}
-                  className="group relative overflow-hidden rounded-xl border border-white/20 bg-white/5 px-4 py-2.5 text-sm font-medium text-white/90 shadow-[0_4px_16px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.3),inset_0_-1px_0_rgba(255,255,255,0.1)] backdrop-blur-md transition hover:border-white/30 hover:bg-white/10 hover:scale-105 hover:shadow-lg"
+                  className="group relative overflow-hidden rounded-full border border-white/20 bg-white/5 px-5 py-2.5 text-sm font-medium text-white/90 shadow-[0_4px_16px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.3),inset_0_-1px_0_rgba(255,255,255,0.1)] backdrop-blur-md transition hover:border-white/30 hover:bg-white/10 hover:shadow-lg"
                 >
                   {/* Top gradient line */}
                   <div className="absolute left-0 right-0 top-0 h-px bg-linear-to-r from-transparent via-white/60 to-transparent" />
@@ -174,7 +174,7 @@ export const Hero = ({ totalSections, sections }: HeroProps) => {
                       element.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     }
                   }}
-                  className="group relative overflow-hidden rounded-xl border border-rose-500/30 bg-rose-500/10 px-4 py-2.5 text-sm font-medium text-rose-200 shadow-[0_4px_16px_rgba(244,114,182,0.2),inset_0_1px_0_rgba(255,255,255,0.3),inset_0_-1px_0_rgba(255,255,255,0.1)] backdrop-blur-md transition hover:border-rose-500/40 hover:bg-rose-500/20 hover:scale-105 hover:shadow-lg"
+                  className="group relative overflow-hidden rounded-full border border-rose-500/30 bg-rose-500/10 px-5 py-2.5 text-sm font-medium text-rose-200 shadow-[0_4px_16px_rgba(244,114,182,0.2),inset_0_1px_0_rgba(255,255,255,0.3),inset_0_-1px_0_rgba(255,255,255,0.1)] backdrop-blur-md transition hover:border-rose-500/40 hover:bg-rose-500/20 hover:shadow-lg"
                 >
                   {/* Top gradient line */}
                   <div className="absolute left-0 right-0 top-0 h-px bg-linear-to-r from-transparent via-rose-300/60 to-transparent" />
