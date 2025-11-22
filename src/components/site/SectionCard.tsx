@@ -30,7 +30,7 @@ export const SectionCard = ({ section }: SectionCardProps) => {
   return (
     <article
       id={`section-${section.slug}`}
-      className="scroll-mt-16 md:scroll-mt-56 lg:scroll-mt-64 overflow-hidden min-h-[150vh] flex flex-col justify-center py-16 md:py-20"
+      className="scroll-mt-16 md:scroll-mt-68 lg:scroll-mt-96 overflow-hidden min-h-[150vh] flex flex-col justify-center py-16 md:py-20"
     >
       {/* Content Section */}
       <div className="w-full px-6 md:px-10 lg:px-16 xl:px-24 mb-10 md:mb-16">
