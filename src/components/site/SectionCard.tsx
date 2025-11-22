@@ -25,7 +25,7 @@ export const SectionCard = ({ section }: SectionCardProps) => {
   return (
     <article
       id={`section-${section.slug}`}
-      className="group relative flex scroll-mt-24 flex-col gap-8 overflow-hidden rounded-[32px] border border-white/10 bg-gradient-to-br from-slate-900/80 via-slate-950 to-slate-900/60 p-8 text-white shadow-[0_25px_80px_rgba(8,12,24,0.55)] transition hover:-translate-y-1 hover:border-white/30 hover:bg-slate-950/90"
+      className="group relative flex scroll-mt-24 flex-col gap-8 overflow-hidden rounded-[32px] border border-white/10 bg-linear-to-br from-slate-900/80 via-slate-950 to-slate-900/60 p-8 text-white shadow-[0_25px_80px_rgba(8,12,24,0.55)] transition hover:-translate-y-1 hover:border-white/30 hover:bg-slate-950/90"
     >
       <div className="flex items-center justify-between text-xs uppercase tracking-[0.4em] text-white/50">
         <span className="flex items-center gap-2">

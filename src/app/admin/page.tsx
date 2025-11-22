@@ -5,9 +5,8 @@ import {
   getAuthenticatedUser,
 } from "@/lib/supabase/server";
 import { AdminHeader } from "@/components/admin/AdminHeader";
-import { ImageUploadForm } from "@/components/admin/ImageUploadForm";
-import { SectionList } from "@/components/admin/SectionList";
-import { ImageManager } from "@/components/admin/ImageManager";
+import { StorageStats } from "@/components/admin/StorageStats";
+import { AdminTabs } from "@/components/admin/AdminTabs";
 
 export default async function AdminPage() {
   const user = await getAuthenticatedUser();
@@ -19,13 +18,10 @@ export default async function AdminPage() {
   const sections = await getAllSections();
 
   return (
-    <main className="mx-auto flex min-h-screen max-w-6xl flex-col gap-8 px-6 py-16">
+    <main className="mx-auto flex min-h-screen max-w-7xl flex-col gap-6 px-4 py-8 sm:px-6 sm:py-12 md:gap-8">
       <AdminHeader email={user.email ?? "admin"} />
-      <div className="grid gap-6 lg:grid-cols-[1.4fr_0.8fr]">
-        <ImageUploadForm sections={sections} />
-        <SectionList sections={sections} />
-      </div>
-      <ImageManager sections={sections} />
+      <StorageStats />
+      <AdminTabs sections={sections} />
     </main>
   );
 }

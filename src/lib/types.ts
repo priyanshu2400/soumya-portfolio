@@ -24,8 +24,16 @@ export type PortfolioSection = {
   images: ImageAsset[];
 };
 
+export type Skill = {
+  id: string;
+  name: string;
+  category: 'core' | 'tool';
+  order: number;
+};
+
 export type PortfolioDataPayload = {
   sections: PortfolioSection[];
+  skills: Skill[];
   sourcedFromSupabase: boolean;
 };
 

@@ -2,6 +2,22 @@ import { PortfolioDataPayload } from "./types";
 
 export const fallbackPortfolioData: PortfolioDataPayload = {
   sourcedFromSupabase: false,
+  skills: [
+    { id: "skill-1", name: "Fashion Styling", category: "core", order: 1 },
+    { id: "skill-2", name: "Brand Identity", category: "core", order: 2 },
+    { id: "skill-3", name: "Content Creation", category: "core", order: 3 },
+    { id: "skill-4", name: "UI/UX Design", category: "core", order: 4 },
+    { id: "skill-5", name: "Graphic Design", category: "core", order: 5 },
+    { id: "skill-6", name: "3D Design", category: "core", order: 6 },
+    { id: "skill-7", name: "Event Curation", category: "core", order: 7 },
+    { id: "skill-8", name: "Social Media", category: "core", order: 8 },
+    { id: "skill-9", name: "Photoshop", category: "tool", order: 1 },
+    { id: "skill-10", name: "Illustrator", category: "tool", order: 2 },
+    { id: "skill-11", name: "Figma", category: "tool", order: 3 },
+    { id: "skill-12", name: "Blender", category: "tool", order: 4 },
+    { id: "skill-13", name: "Canva Pro", category: "tool", order: 5 },
+    { id: "skill-14", name: "Midjourney", category: "tool", order: 6 },
+  ],
   sections: [
     {
       id: "intro",

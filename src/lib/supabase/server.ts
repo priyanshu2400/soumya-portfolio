@@ -7,6 +7,7 @@ import {
   PortfolioSection,
   SectionContentBlock,
   ImageAsset,
+  Skill,
 } from "../types";
 
 const getEnv = () => {
@@ -30,22 +31,18 @@ export const createServerSupabaseClient = async () => {
 
   return createServerClient(env.url, env.anonKey, {
     cookies: {
-      get(name) {
-        return cookieStore.get(name)?.value;
+      getAll() {
+        return cookieStore.getAll();
       },
-      set(name, value, options) {
+      setAll(cookiesToSet) {
         try {
-          cookieStore.set({ name, value, ...options });
-        } catch (error) {
-          // ignore set errors during SSR
-          console.error("Unable to set cookie", error);
-        }
-      },
-      remove(name, options) {
-        try {
-          cookieStore.delete({ name, ...options });
-        } catch (error) {
-          console.error("Unable to remove cookie", error);
+          cookiesToSet.forEach(({ name, value, options }) =>
+            cookieStore.set(name, value, options)
+          );
+        } catch {
+          // The `setAll` method was called from a Server Component.
+          // This can be ignored if you have middleware refreshing
+          // user sessions.
         }
       },
     },
@@ -108,6 +105,26 @@ const baseSectionQuery = `
         )
       `;
 
+export const getSkills = async (): Promise<Skill[]> => {
+  try {
+    const supabase = await createServerSupabaseClient();
+    const { data, error } = await supabase
+      .from("skills")
+      .select("*")
+      .order("order", { ascending: true });
+
+    if (error || !data) {
+      console.error("Unable to load skills", error);
+      return [];
+    }
+
+    return data as Skill[];
+  } catch (err) {
+    console.error(err);
+    return [];
+  }
+};
+
 export const getPortfolioData = async (): Promise<PortfolioDataPayload> => {
   try {
     const env = getEnv();
@@ -127,8 +144,12 @@ export const getPortfolioData = async (): Promise<PortfolioDataPayload> => {
       return fallbackPortfolioData;
     }
 
+    // Fetch skills
+    const skills = await getSkills();
+
     return {
       sections: data.map(mapSection),
+      skills,
       sourcedFromSupabase: true,
     };
   } catch (err) {

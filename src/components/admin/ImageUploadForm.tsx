@@ -62,6 +62,8 @@ export const ImageUploadForm = ({ sections }: Props) => {
   });
 
   const onSubmit = async (values: FormValues) => {
+    setStatus(null); // Clear previous status when starting new upload
+    
     const files: File[] = Array.from(values.files ?? []);
     if (!files.length) {
       setStatus({ type: "error", message: "No files selected." });
@@ -117,6 +119,12 @@ export const ImageUploadForm = ({ sections }: Props) => {
         type: "success",
         message: `Uploaded ${successes.length} image${successes.length > 1 ? "s" : ""} successfully.`,
       });
+      
+      // Auto-hide success message after 3 seconds
+      setTimeout(() => {
+        setStatus(null);
+      }, 3000);
+      
       reset({
         caption: "",
         altText: "",
@@ -138,16 +146,22 @@ export const ImageUploadForm = ({ sections }: Props) => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="space-y-4 rounded-3xl border border-white/10 bg-slate-900/40 p-6 text-white"
+      className="space-y-4 rounded-2xl border border-white/10 bg-slate-900/40 p-4 text-white sm:rounded-3xl sm:p-6"
     >
-      <div className="grid gap-4 md:grid-cols-2">
+      <div>
+        <p className="text-xs uppercase tracking-[0.3em] text-white/50 sm:text-sm sm:tracking-[0.4em]">
+          Upload Images
+        </p>
+        <p className="mt-1 text-xs text-white/40">Add visuals to your sections</p>
+      </div>
+      <div className="grid gap-4">
         <label className="text-sm">
-          Section
+          Section *
           <select
-            className="mt-2 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white focus:border-white focus:outline-none"
+            className="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-base text-white focus:border-rose-500/50 focus:outline-none focus:ring-1 focus:ring-rose-500/50 sm:rounded-2xl"
             {...register("sectionId")}
           >
-            <option value="">Select</option>
+            <option value="">Choose a section</option>
             {sections.map((section) => (
               <option key={section.id} value={section.id} className="bg-slate-900 text-white">
                 {section.title}
@@ -162,21 +176,19 @@ export const ImageUploadForm = ({ sections }: Props) => {
           Display Order
           <input
             type="number"
-            className="mt-2 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white focus:border-white focus:outline-none"
+            className="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-base text-white focus:border-rose-500/50 focus:outline-none focus:ring-1 focus:ring-rose-500/50 sm:rounded-2xl"
             {...register("order", { valueAsNumber: true })}
           />
           {errors.order && (
             <p className="mt-1 text-xs text-rose-300">{errors.order.message}</p>
           )}
         </label>
-      </div>
-      <div className="grid gap-4 md:grid-cols-2">
         <label className="text-sm">
           Caption
           <input
             type="text"
             placeholder="Lookbook still, 2024"
-            className="mt-2 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 focus:border-white focus:outline-none"
+            className="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-base text-white placeholder:text-white/40 focus:border-rose-500/50 focus:outline-none focus:ring-1 focus:ring-rose-500/50 sm:rounded-2xl"
             {...register("caption")}
           />
         </label>
@@ -185,18 +197,18 @@ export const ImageUploadForm = ({ sections }: Props) => {
           <input
             type="text"
             placeholder="Model in handcrafted print"
-            className="mt-2 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 focus:border-white focus:outline-none"
+            className="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-base text-white placeholder:text-white/40 focus:border-rose-500/50 focus:outline-none focus:ring-1 focus:ring-rose-500/50 sm:rounded-2xl"
             {...register("altText")}
           />
         </label>
       </div>
-      <label className="text-sm">
-        Image Files
+      <label className="block text-sm">
+        Image Files *
         <input
           type="file"
           accept="image/*"
           multiple
-          className="mt-2 w-full rounded-2xl border border-dashed border-white/25 bg-transparent px-4 py-6 text-white/70 file:mr-4 file:rounded-full file:border-0 file:bg-white file:px-4 file:py-2 file:text-sm file:font-semibold file:text-slate-900"
+          className="mt-2 w-full rounded-xl border border-dashed border-white/25 bg-transparent px-3 py-4 text-sm text-white/70 file:mr-3 file:rounded-full file:border-0 file:bg-white file:px-4 file:py-2 file:text-sm file:font-semibold file:text-slate-900 sm:rounded-2xl sm:px-4 sm:py-6"
           {...register("files")}
         />
         {errors.files && (
@@ -205,7 +217,7 @@ export const ImageUploadForm = ({ sections }: Props) => {
       </label>
       {status && (
         <p
-          className={`rounded-2xl border px-4 py-3 text-sm ${
+          className={`rounded-xl border px-4 py-3 text-sm sm:rounded-2xl ${
             status.type === "success"
               ? "border-emerald-400/40 bg-emerald-400/10 text-emerald-100"
               : "border-rose-400/40 bg-rose-500/10 text-rose-100"
@@ -217,9 +229,9 @@ export const ImageUploadForm = ({ sections }: Props) => {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full rounded-2xl bg-white px-4 py-3 text-sm font-semibold text-slate-900 transition hover:bg-rose-100 disabled:cursor-not-allowed disabled:opacity-60"
+        className="w-full rounded-xl bg-white px-4 py-3.5 text-base font-semibold text-slate-900 transition hover:bg-rose-100 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60 sm:rounded-2xl sm:text-sm"
       >
-        {isSubmitting ? "Uploading..." : "Upload images"}
+        {isSubmitting ? "Uploading..." : "Upload Images"}
       </button>
     </form>
   );

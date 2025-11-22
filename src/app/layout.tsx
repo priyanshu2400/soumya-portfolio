@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Soumya Vatsa — Fashion Communication Portfolio",
   description:
-    "Design-focused portfolio with admin CMS powered by Supabase for Soumya Vatsa, Fashion Communication at NIFT Chennai.",
+    "Design-focused portfolio for Soumya Vatsa, Fashion Communication at NIFT Chennai.",
   metadataBase: new URL("https://soumya-portfolio.vercel.app"),
   openGraph: {
     title: "Soumya Vatsa — Fashion Communication Portfolio",
