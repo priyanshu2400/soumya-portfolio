@@ -58,12 +58,12 @@ export const PortfolioShell = ({ data, highlightSlug }: Props) => {
         </div>
         
         {/* Skills Section */}
-        <div id="skills" className="mt-32 pt-24 md:mt-40 md:pt-28 lg:mt-48 lg:pt-32 xl:mt-56 xl:pt-36">
+        <div id="skills" className="mt-32 flex min-h-screen items-center pb-60 pt-24 md:mt-40 md:pb-60 md:pt-28 lg:mt-48 lg:pb-48 lg:pt-32 xl:mt-56 xl:pb-56 xl:pt-36">
           <MobileSkills skills={data.skills} />
         </div>
         
         {/* Contact Section */}
-        <div id="contact" className="mx-auto w-full max-w-6xl px-4 pb-40 pt-32 sm:px-6 sm:pt-36 md:px-10 md:pt-40 lg:pb-48 lg:pt-48 xl:pt-56">
+        <div id="contact" className="mx-auto w-full min-h-screen max-w-6xl px-4 pb-40 pt-32 sm:px-6 sm:pt-36 md:px-10 md:pt-40 lg:pb-48 lg:pt-48 xl:pt-56">
           <footer className="mt-12 min-h-[400px] p-6 sm:p-8 md:mt-16 md:p-10 lg:p-12">
             <div className="space-y-5 sm:space-y-6">
               {/* Header */}

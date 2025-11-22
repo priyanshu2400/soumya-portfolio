@@ -46,9 +46,9 @@ export const IntroCard = ({ section }: IntroCardProps) => {
   return (
     <article
       id={`section-${section.slug}`}
-      className="scroll-mt-24 w-screen overflow-hidden"
+      className="scroll-mt-16 md:scroll-mt-56 lg:scroll-mt-64 w-screen overflow-hidden min-h-screen flex flex-col justify-center py-16 md:py-20"
     >
-      <div className="mx-auto max-w-4xl px-6 md:px-10 mb-16 md:mb-20">
+      <div className="w-full px-6 md:px-10 lg:px-16 xl:px-24 mb-16 md:mb-20">
         <h2 className="text-3xl md:text-4xl font-semibold text-white mb-6 leading-tight">
           {section.title}
         </h2>
@@ -106,7 +106,7 @@ export const IntroCard = ({ section }: IntroCardProps) => {
           </div>
         </div>
       ) : (
-        <div className="flex h-[480px] items-center justify-center rounded-3xl border border-dashed border-white/25 bg-slate-900/60 text-center text-xs text-white/50 mx-6 md:mx-10">
+        <div className="flex h-[480px] items-center justify-center rounded-3xl border border-dashed border-white/25 bg-slate-900/60 text-center text-xs text-white/50 mx-6 md:mx-10 lg:mx-16 xl:mx-24">
           Upload visuals for {section.title} inside the admin console.
         </div>
       )}

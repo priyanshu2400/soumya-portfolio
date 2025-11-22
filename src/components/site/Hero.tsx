@@ -20,19 +20,20 @@ export const Hero = ({ totalSections, sections }: HeroProps) => {
       
       <div className="relative flex flex-col lg:grid lg:grid-cols-[1fr_0.9fr] lg:items-stretch lg:border-b lg:border-white/10 lg:min-h-screen">
         {/* Mobile: Image with overlaid heading */}
-        <div className="relative flex min-h-screen lg:hidden">
-          {/* Content Container - Positioned at top */}
-          <div className="relative z-10 flex w-full items-start p-4 pt-16 sm:p-6 sm:pt-20">
-            <div className="flex flex-col items-start space-y-3 sm:space-y-4">
-              <h1 className="text-5xl font-bold leading-[1.1] tracking-tight text-white drop-shadow-lg sm:text-6xl">
-                Hi, I'm
-                <span className="block bg-linear-to-r from-rose-400 via-pink-300 to-rose-500 bg-clip-text text-transparent drop-shadow-lg">
-                  Soumya Vatsa
-                </span>
-              </h1>
+        <div className="relative flex min-h-screen flex-col justify-between lg:hidden">
+          {/* Heading - Always at top */}
+          <div className="relative z-10 w-full p-4 pt-24 sm:p-6 sm:pt-28">
+            <h1 className="text-5xl font-bold leading-[1.1] tracking-tight text-white drop-shadow-lg sm:text-6xl">
+              Hi, I'm
+              <span className="block bg-linear-to-r from-rose-400 via-pink-300 to-rose-500 bg-clip-text text-transparent drop-shadow-lg">
+                Soumya Vatsa
+              </span>
+            </h1>
+          </div>
 
-              {/* Section Buttons - Mobile */}
-              <div className="w-full space-y-2 pt-4">
+          {/* Section Buttons - At bottom on tablet, below heading on mobile */}
+          <div className="relative z-10 w-full p-4 pb-12 md:pb-16">
+            <div className="w-full space-y-2">
                 <h3 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-white/50 sm:text-sm">
                   <span className="h-px w-6 bg-white/30 sm:w-8" />
                   Explore Work
@@ -44,7 +45,7 @@ export const Hero = ({ totalSections, sections }: HeroProps) => {
                       onClick={() => {
                         const element = document.getElementById(`section-${section.slug}`);
                         if (element) {
-                          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                          element.scrollIntoView({ behavior: 'smooth', block: 'center' });
                         }
                       }}
                       className="relative overflow-hidden rounded-full border border-white/20 bg-white/5 px-4 py-2.5 text-sm font-medium text-white/90 shadow-[0_2px_8px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.3)] backdrop-blur-md transition active:scale-95 sm:px-5 sm:py-3 sm:text-base"
@@ -58,7 +59,7 @@ export const Hero = ({ totalSections, sections }: HeroProps) => {
                     onClick={() => {
                       const element = document.getElementById('skills');
                       if (element) {
-                        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
                       }
                     }}
                     className="relative overflow-hidden rounded-full border border-white/20 bg-white/5 px-4 py-2.5 text-sm font-medium text-white/90 shadow-[0_2px_8px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.3)] backdrop-blur-md transition active:scale-95 sm:px-5 sm:py-3 sm:text-base"
@@ -71,7 +72,7 @@ export const Hero = ({ totalSections, sections }: HeroProps) => {
                     onClick={() => {
                       const element = document.getElementById('contact');
                       if (element) {
-                        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
                       }
                     }}
                     className="relative overflow-hidden rounded-full border border-rose-500/30 bg-rose-500/10 px-4 py-2.5 text-sm font-medium text-rose-200 shadow-[0_2px_8px_rgba(244,114,182,0.2),inset_0_1px_0_rgba(255,255,255,0.3)] backdrop-blur-md transition active:scale-95 sm:px-5 sm:py-3 sm:text-base"
@@ -81,7 +82,6 @@ export const Hero = ({ totalSections, sections }: HeroProps) => {
                     <span className="relative">Contact</span>
                   </button>
                 </div>
-              </div>
             </div>
           </div>
           
@@ -102,13 +102,7 @@ export const Hero = ({ totalSections, sections }: HeroProps) => {
         </div>
 
         {/* Content Section - Desktop */}
-        <div className="relative z-10 hidden flex-col justify-center space-y-4 p-6 pt-4 sm:space-y-5 sm:p-8 md:p-10 lg:flex lg:space-y-8 lg:p-12 xl:p-16">
-          {/* Name Badge - hidden on mobile, shown on desktop */}
-          <div className="hidden w-fit items-center gap-2 rounded-full border border-rose-500/30 bg-rose-500/10 px-3 py-1 backdrop-blur-sm sm:px-4 sm:py-1.5 lg:inline-flex">
-            <Sparkles className="h-3 w-3 text-rose-300 sm:h-3.5 sm:w-3.5" />
-            <span className="text-[10px] font-medium text-rose-200 sm:text-xs">Fashion Communication Designer</span>
-          </div>
-
+        <div className="relative z-10 hidden flex-col justify-end space-y-4 p-6 pb-8 pt-4 sm:space-y-5 sm:p-8 sm:pb-10 md:p-10 md:pb-12 lg:flex lg:justify-center lg:space-y-8 lg:p-12 xl:p-16">
           {/* Heading - hidden on mobile, shown on desktop */}
           <div className="hidden space-y-2 sm:space-y-3 lg:block">
             <h1 className="text-3xl font-bold leading-[1.1] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
@@ -136,7 +130,7 @@ export const Hero = ({ totalSections, sections }: HeroProps) => {
                     onClick={() => {
                       const element = document.getElementById(`section-${section.slug}`);
                       if (element) {
-                        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
                       }
                     }}
                     className="group relative overflow-hidden rounded-xl border border-white/20 bg-white/5 px-4 py-2.5 text-sm font-medium text-white/90 shadow-[0_4px_16px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.3),inset_0_-1px_0_rgba(255,255,255,0.1)] backdrop-blur-md transition hover:border-white/30 hover:bg-white/10 hover:scale-105 hover:shadow-lg"
@@ -157,7 +151,7 @@ export const Hero = ({ totalSections, sections }: HeroProps) => {
                   onClick={() => {
                     const element = document.getElementById('skills');
                     if (element) {
-                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      element.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     }
                   }}
                   className="group relative overflow-hidden rounded-xl border border-white/20 bg-white/5 px-4 py-2.5 text-sm font-medium text-white/90 shadow-[0_4px_16px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.3),inset_0_-1px_0_rgba(255,255,255,0.1)] backdrop-blur-md transition hover:border-white/30 hover:bg-white/10 hover:scale-105 hover:shadow-lg"
@@ -177,7 +171,7 @@ export const Hero = ({ totalSections, sections }: HeroProps) => {
                   onClick={() => {
                     const element = document.getElementById('contact');
                     if (element) {
-                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      element.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     }
                   }}
                   className="group relative overflow-hidden rounded-xl border border-rose-500/30 bg-rose-500/10 px-4 py-2.5 text-sm font-medium text-rose-200 shadow-[0_4px_16px_rgba(244,114,182,0.2),inset_0_1px_0_rgba(255,255,255,0.3),inset_0_-1px_0_rgba(255,255,255,0.1)] backdrop-blur-md transition hover:border-rose-500/40 hover:bg-rose-500/20 hover:scale-105 hover:shadow-lg"
