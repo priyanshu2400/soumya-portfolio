@@ -10,10 +10,10 @@ type Params = {
 export default async function SectionLanding({
   params,
 }: {
-  params: Params;
+  params: Promise<Params>;
 }) {
   const data = await getPortfolioData();
-  const targetSlug = params.slug;
+  const { slug: targetSlug } = await params;
   const exists = data.sections.some(
     (section) => section.slug === targetSlug,
   );

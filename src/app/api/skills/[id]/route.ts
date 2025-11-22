@@ -3,7 +3,7 @@ import { createServerSupabaseClient, getAuthenticatedUser } from "@/lib/supabase
 
 export async function PUT(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const user = await getAuthenticatedUser();
@@ -11,6 +11,7 @@ export async function PUT(
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
+    const { id } = await params;
     const body = await request.json();
     const { name, category, order } = body;
 
@@ -18,7 +19,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from("skills")
       .update({ name, category, order })
-      .eq("id", params.id)
+      .eq("id", id)
       .select()
       .single();
 
@@ -37,7 +38,7 @@ export async function PUT(
 
 export async function DELETE(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const user = await getAuthenticatedUser();
@@ -45,11 +46,12 @@ export async function DELETE(
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
+    const { id } = await params;
     const supabase = await createServerSupabaseClient();
     const { error } = await supabase
       .from("skills")
       .delete()
-      .eq("id", params.id);
+      .eq("id", id);
 
     if (error) {
       return NextResponse.json({ error: error.message }, { status: 500 });
